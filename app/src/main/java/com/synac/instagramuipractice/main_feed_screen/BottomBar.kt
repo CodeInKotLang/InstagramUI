@@ -1,13 +1,12 @@
 package com.synac.instagramuipractice.main_feed_screen
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -20,31 +19,12 @@ fun BottomBar() {
     BottomAppBar(
         backgroundColor = Color.White
     ) {
-        var selectedScreen by remember { mutableStateOf(Screens.Home.route) }
-
-        val homeIcon = if (selectedScreen == Screens.Home.route) {
-            painterResource(R.drawable.ic_home_filled)
-        } else painterResource(R.drawable.ic_home_outline)
-
-        val searchIcon = if (selectedScreen == Screens.Search.route) {
-            painterResource(R.drawable.ic_search_dark)
-        } else painterResource(R.drawable.ic_search)
-
-        val reelsIcon = if (selectedScreen == Screens.Reels.route) {
-            painterResource(R.drawable.ic_reels_filled)
-        } else painterResource(R.drawable.ic_reels_outline)
-
-        val likeIcon = if (selectedScreen == Screens.Like.route) {
-            painterResource(R.drawable.ic_love_filled)
-        } else painterResource(R.drawable.ic_love_outline)
-
-
         BottomNavigationItem(
-            selected = selectedScreen == Screens.Home.route,
-            onClick = { selectedScreen = Screens.Home.route },
+            selected = true,
+            onClick = {},
             icon = {
                 Icon(
-                    painter = homeIcon,
+                    painter = painterResource(R.drawable.ic_home_filled),
                     contentDescription = "Home Icon",
                     modifier = Modifier.size(35.dp),
                     tint = Color.Black
@@ -52,11 +32,11 @@ fun BottomBar() {
             }
         )
         BottomNavigationItem(
-            selected = selectedScreen == Screens.Search.route,
-            onClick = { selectedScreen = Screens.Search.route },
+            selected = false,
+            onClick = { },
             icon = {
                 Icon(
-                    painter = searchIcon,
+                    painter = painterResource(R.drawable.ic_search),
                     contentDescription = "Search Icon",
                     modifier = Modifier.size(35.dp),
                     tint = Color.Black
@@ -64,11 +44,11 @@ fun BottomBar() {
             }
         )
         BottomNavigationItem(
-            selected = selectedScreen == Screens.Reels.route,
-            onClick = { selectedScreen = Screens.Reels.route },
+            selected = false,
+            onClick = { },
             icon = {
                 Icon(
-                    painter = reelsIcon,
+                    painter = painterResource(R.drawable.ic_reels_outline),
                     contentDescription = "Reels Icon",
                     modifier = Modifier.size(35.dp),
                     tint = Color.Black
@@ -76,11 +56,11 @@ fun BottomBar() {
             }
         )
         BottomNavigationItem(
-            selected = selectedScreen == Screens.Like.route,
-            onClick = { selectedScreen = Screens.Like.route },
+            selected = false,
+            onClick = { },
             icon = {
                 Icon(
-                    painter = likeIcon,
+                    painter = painterResource(R.drawable.ic_like_outline),
                     contentDescription = "Like Icon",
                     modifier = Modifier.size(35.dp),
                     tint = Color.Black
@@ -88,37 +68,17 @@ fun BottomBar() {
             }
         )
         BottomNavigationItem(
-            selected = selectedScreen == Screens.Profile.route,
-            onClick = { selectedScreen = Screens.Profile.route },
+            selected = false,
+            onClick = { },
             icon = {
-                if (selectedScreen == Screens.Profile.route) {
-                    Image(
-                        painter = painterResource(R.drawable.jon_snow),
-                        contentDescription = "Profile Icon",
-                        modifier = Modifier
-                            .size(30.dp)
-                            .clip(CircleShape)
-                            .border(width = 2.dp, color = Color.Black, shape = CircleShape)
-                    )
-                } else {
-                    Image(
-                        painter = painterResource(R.drawable.jon_snow),
-                        contentDescription = "Profile Icon",
-                        modifier = Modifier
-                            .size(30.dp)
-                            .clip(CircleShape)
-                    )
-                }
+                Image(
+                    painter = painterResource(R.drawable.jon_snow),
+                    contentDescription = "Profile Icon",
+                    modifier = Modifier
+                        .size(30.dp)
+                        .clip(CircleShape)
+                )
             }
         )
     }
 }
-
-sealed class Screens(val route: String) {
-    object Home: Screens("home")
-    object Search: Screens("search")
-    object Reels: Screens("reals")
-    object Like: Screens("like")
-    object Profile: Screens("profile")
-}
-

@@ -28,9 +28,8 @@ import com.synac.instagramuipractice.model.User
 fun StoryWidget(
     user: User
 ) {
-    val storiesFont = FontFamily(
-        Font(R.font.robotocondensed)
-    )
+    val storiesFont = FontFamily(Font(R.font.robotocondensed))
+
     Box(
         modifier = Modifier.padding(10.dp),
         contentAlignment = Alignment.TopCenter

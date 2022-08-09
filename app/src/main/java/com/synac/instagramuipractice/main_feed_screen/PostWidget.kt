@@ -73,7 +73,6 @@ fun PostWidget(
             contentDescription = "Post Picture",
             contentScale = ContentScale.FillWidth
         )
-
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
@@ -83,7 +82,7 @@ fun PostWidget(
             ) {
                 IconButton(onClick = { /*TODO*/ }) {
                     Icon(
-                        painter = painterResource(R.drawable.ic_love_outline),
+                        painter = painterResource(R.drawable.ic_like_outline),
                         contentDescription = "Like Icon",
                         tint = Color.Black,
                         modifier = Modifier.size(25.dp)
@@ -148,13 +147,13 @@ fun PostWidget(
 fun PostWidgetPrev() {
     PostWidget(
         user = User(
-            profilePic = painterResource(R.drawable.rob_stark),
-            username = "rob_stark",
-            location = "Tokyo, Japan",
-            postPic = painterResource(R.drawable.robb_stark_post),
-            likeCount = 155,
-            caption = "This is all we need",
-            commentCount = 18
+            profilePic = painterResource(R.drawable.jon_snow),
+            username = "jon_snow",
+            location = "Accra, Ghana",
+            postPic = painterResource(R.drawable.jon_snow_post),
+            likeCount = 168,
+            caption = "Hey Guy's, checkout my new post",
+            commentCount = 15
         )
     )
 }

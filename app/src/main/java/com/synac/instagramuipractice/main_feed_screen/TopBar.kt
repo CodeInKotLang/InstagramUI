@@ -20,7 +20,7 @@ import com.synac.instagramuipractice.R
 @Composable
 fun TopBar() {
 
-    val instagramFont = FontFamily(
+    val instagramTitleFont = FontFamily(
         Font(R.font.instagram_logo_font)
     )
 
@@ -29,12 +29,13 @@ fun TopBar() {
             Text(
                 modifier = Modifier.offset(y = 5.dp),
                 text = "Instagram",
-                fontFamily = instagramFont,
+                fontFamily = instagramTitleFont,
                 fontSize = 35.sp,
                 color = Color.Black
             )
         },
         backgroundColor = Color.White,
+        elevation = 2.dp,
         actions = {
             IconButton(onClick = { /*TODO*/ }) {
                 Icon(
@@ -52,8 +53,7 @@ fun TopBar() {
                     modifier = Modifier.size(25.dp)
                 )
             }
-        },
-        elevation = 2.dp
+        }
     )
 }
 
